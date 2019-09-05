@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.kefei.demo.dao.ExamAddressMaintainDao" >
+    <sql id="BASE_TABLE">
+        exam_address_maintain
+     </sql>
+
+    <sql id="BASE_COLUMN">
+        id,exam_area_code,exam_area_name,exam_address_number,contain_examroom_quantity,standard_examroom_people,examroom_default_stat_number,exam_address_name,exam_address
+    </sql>
+
+    <!--<insert id="insert" parameterType="com.kefei.demo.model.ExamAddressMaintain">
+        INSERT INTO
+        <include refid="BASE_TABLE"/>
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            userName,password,
+            <if test="phone != null">
+                phone,
+            </if>
+        </trim>
+        <trim prefix="VALUES(" suffix=")" suffixOverrides=",">
+            #{userName, jdbcType=VARCHAR},#{password, jdbcType=VARCHAR},
+            <if test="phone != null">
+                #{phone, jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>-->
+
+    <select id="selectAllPage" resultType="com.kefei.demo.model.ExamAddressMaintain">
+        SELECT
+        <include refid="BASE_COLUMN"/>
+        FROM
+        <include refid="BASE_TABLE"/>
+    </select>
+
+    <select id="selectList" resultType="com.kefei.demo.model.ExamAddressMaintain">
+        select * from exam_address_maintain
+    </select>
+
+    <select id="selectOne" resultType="com.kefei.demo.model.ExamAddressMaintain">
+        select * from exam_address_maintain where id = #{id}
+    </select>
+</mapper>
